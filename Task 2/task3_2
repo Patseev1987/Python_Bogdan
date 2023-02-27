@@ -1,0 +1,39 @@
+# Задача 18: Требуется найти в массиве A[1..N] самый близкий по величине элемент к заданному числу X.
+# Пользователь в первой строке вводит натуральное число N – количество элементов в массиве.
+# В последующих  строках записаны N целых чисел Ai. Последняя строка содержит число X
+
+# *Пример:*
+
+# 5
+#     1 2 3 4 5
+#     6
+#     -> 5
+
+# По такому условию задача решается:
+# number = int(input("Enter the number: "))
+# my_list = [i for i in range(1, number+1)]
+# print(my_list)
+# number_the_nearest = int(input("Enter the number to find the nearest: "))
+# if my_list.__contains__(number_the_nearest):
+#     print(number_the_nearest)
+# elif number_the_nearest > number:
+#     print(number)
+# else:
+#     print(1)
+
+print("\n"*100)
+
+my_list = input("Enter numbers: ").split()
+counter = 0
+print(my_list)
+number_the_nearest = int(input("Enter the number to find the nearest: "))
+if my_list.__contains__(number_the_nearest):
+    print(number_the_nearest)
+elif number_the_nearest > 0:
+    new_list = [abs(number_the_nearest-int(my_list[i]))
+                for i in range(len(my_list))]
+    print(number_the_nearest-min(new_list))
+else:
+    new_list = [abs(number_the_nearest-int(my_list[i]))
+                for i in range(len(my_list))]
+    print(number_the_nearest+min(new_list))
