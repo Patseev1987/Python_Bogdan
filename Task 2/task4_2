@@ -1,0 +1,21 @@
+from random import randint
+print("\n"*100)
+size = int(input("Enter the number of bushes: "))
+n = int(input("Enter the number of bushes at a time: "))
+my_berries = [randint(10, 70) for i in range(size)]
+print(my_berries)
+count = (1-n)
+max_berries = 0
+sum = 0
+i = count
+while i < (count+n):
+    sum += my_berries[i]
+    i += 1
+max_berries = sum
+count = 1-n+1
+while count < size-n:
+    sum = sum-my_berries[count-1]+my_berries[count+n-1]
+    if sum > max_berries:
+        max_berries = sum
+    count += 1
+print(f"Maximum number of berries:  {max_berries}")
